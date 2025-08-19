@@ -67,16 +67,36 @@ my-custom-block/
 
 Open the Block Editor (Gutenberg).
 
--> Add a new block → Search “My Custom Block”.
-
--> 
-
-->
-
-->
+  ```
+  1. Testimonial Block
+  
+  Attributes: name, text, textColor, bgColor, fontSize
+  
+  Customization: Live preview for text color, background color, font size
+```
+```
+  2. CTA Block
+  
+  Attributes: title, description, buttonText, buttonUrl, bgColor, textColor
+  
+  Customization: Live preview for text and background colors
+```
+```
+  3. Team Member Block
+  
+  Attributes: name, role, imageUrl, socialLinks
+  
+  Customization: Change profile image, role, and social links
+```
+```
+  4. Pricing Table Block
+  
+  Attributes: planName, price, features, buttonText, buttonUrl, textColor, bgColor, buttonColor
+  
+  Customization: Add/remove features, customize colors, update button
 
 ---
-
+```
 ## ⚡ Tech Stack
 ->
 ->
