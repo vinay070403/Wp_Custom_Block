@@ -13,94 +13,114 @@
 This is a **custom Gutenberg block plugin** for WordPress built with  
 [`@wordpress/scripts`](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/),  
 which uses **Webpack + Babel** under the hood.
-
-The plugin registers a block called **“My Custom Block”** that displays:
-- `Hello Editor 👋` inside Gutenberg Editor
-- `Hello Frontend 👋` on the site frontend
-
 ---
 
 ## 🚀 Features
-- ⚡ Built with **modern JavaScript (ESNext + JSX)**
+- ⚡ Testimonial Block – Add customer testimonials with editable name, feedback, text color, background color, and font size.
 - 🔧 Compiled & bundled via **Webpack**
-- 🔤 Transpiled with **Babel**
+- 🔤CTA Block – Create call-to-action sections with title, description, button text & URL, and custom styling.
 - 🎨 WordPress coding standards out of the box
-- 📝 Easy to extend and add more blocks
-
+- 📝 Team Member Block – Showcase team members with name, role, image, and social links.
+- 📝 Pricing Table Block – Display pricing plans with plan name, price, features, button, and custom colors.
 ---
-
+## 📂 Folder Structure
+```
+my-custom-block/
+│
+├─ src/                # Block source files
+│  ├─ testimonial.js
+│  ├─ cta.js
+│  ├─ team.js
+│  └─ pricing.js
+│
+├─ build/              # Compiled JS/CSS
+├─ style.css           # Frontend & editor styles
+├─ index.php           # Plugin bootstrap
+├─ block.json          # Block registration & metadata
+└─ package.json        # NPM dependencies
+```
 ## 🛠️ Installation & Setup
 
 1. Clone or download this repository into your WordPress `wp-content/plugins/` folder:
    ```bash
    git clone https://github.com/yourusername/my-custom-block.git
-   cd my-custom-block
+   ```
+2. Navigate to the plugin folder and install dependencies:
+   ``` cd my-custom-block```
+3. Start development mode with live reloading:
+   ```
+    npm install
+   ```
+4. Build production-ready assets:
+   ```
+    npm run build
+
+    npm start
+
+5. Activate the plugin from WordPress Admin > Plugins.
+
+   
+---
 
 
-Install dependencies:
-
-npm install
-
-
-Build the project:
-
-npm run build
-
-
-Activate the plugin from WordPress Admin > Plugins.
-
-🧑‍💻 Usage
+## 🧑‍💻 Usage
 
 Open the Block Editor (Gutenberg).
 
-Add a new block → Search “My Custom Block”.
+-> Add a new block → Search “My Custom Block”.
 
-Insert it into your page/post.
+-> 
 
-👉 Editor will show:
-Hello Editor 👋
-👉 Frontend will show:
-Hello Frontend 👋
+->
 
-⚡ Tech Stack
+->
 
-🐞 Problems Faced & Solutions
-1. npm WARN deprecated ... during installation
+---
 
-Faced many warnings about deprecated packages (rimraf, glob, etc.).
+## ⚡ Tech Stack
+->
+->
+->
 
-✅ Solution: Ignored them because @wordpress/scripts internally manages its dependencies. The plugin still builds successfully.
+---
 
-2. npx wp-scripts --version error: "could not determine executable to run"
+## 🐞 Problems Faced & Solutions
+  1. npm WARN deprecated ... during installation
 
-On Windows, npx couldn’t detect the local binary.
+  Faced many warnings about deprecated packages (rimraf, glob, etc.).
 
-✅ Solution: Instead of npx, used npm run build or .\node_modules\.bin\wp-scripts. This worked perfectly.
+  ✅ Solution: Ignored them because @wordpress/scripts internally manages its dependencies. The plugin still builds successfully.
 
-3. Gutenberg Block not visible
+  2. npx wp-scripts --version error: "could not determine executable to run"
 
-Initially forgot to run npm run build, so build/index.js was missing.
+  On Windows, npx couldn’t detect the local binary.
 
-✅ Solution: Always run build before activating plugin.
+  ✅ Solution: Instead of npx, used npm run build or .\node_modules\.bin\wp-scripts. This worked perfectly.
 
-📸 Screenshots
+  3. Gutenberg Block not visible
+
+  Initially forgot to run npm run build, so build/index.js was missing.
+
+  ✅ Solution: Always run build before activating plugin.
+
+  ---
+
+## 📸 Screenshots
 
 <img width="1389" height="573" alt="image" src="https://github.com/user-attachments/assets/1e935c5f-1ab1-4445-8cba-d1923ce43f39" />
 <img width="1656" height="798" alt="image" src="https://github.com/user-attachments/assets/fd3ec205-bc3c-46a1-b62b-a14c9322e653" />
 <img width="1705" height="831" alt="image" src="https://github.com/user-attachments/assets/7e6fcc4a-708f-4407-b3fb-9feb7fb6f9a1" />
 
+---
 
-
-
-Gutenberg Editor view (Hello Editor 👋)
-
-Frontend view (Hello Frontend 👋)
-
-🤝 Contribution
+## 🤝 Contribution
 
 Feel free to fork, raise issues, or submit pull requests.
 
-📜 License
+----
+
+$$ 📜 License
 
 GPL-2.0-or-later
 This plugin is open source and free to use.
+---
