@@ -7,3 +7,6 @@ registerBlockType('myplugin/my-custom-block', {
     edit: () => <p>Hello Editor 👋</p>,
     save: () => <p>Hello Frontend 👋</p>,
 });
+
+import './hello.js';      // pehle wala block (Hello World)
+import './testimonial.js'; // naya testimonial block

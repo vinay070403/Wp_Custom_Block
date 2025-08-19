@@ -1,0 +1,13 @@
+.testimonial-block {
+    border-left: 4px solid #0073aa;
+    padding: 1em;
+    margin: 1em 0;
+    background: #f9f9f9;
+    font-style: italic;
+}
+
+.testimonial-name {
+    font-weight: bold;
+    margin-top: 0.5em;
+    text-align: right;
+}
