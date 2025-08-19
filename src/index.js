@@ -13,3 +13,4 @@ import "./testimonial.js"; // naya testimonial block
 import "./testimonial";
 import "./team-member"; // Add this line
 import "./cta-block"; // Add this line
+import "./pricing-table"; // Add this line
