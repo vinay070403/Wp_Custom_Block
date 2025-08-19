@@ -85,7 +85,12 @@ Initially forgot to run npm run build, so build/index.js was missing.
 
 📸 Screenshots
 
-(Upload screenshots later inside /assets/screenshots/ folder and reference them here)
+<img width="1389" height="573" alt="image" src="https://github.com/user-attachments/assets/1e935c5f-1ab1-4445-8cba-d1923ce43f39" />
+<img width="1656" height="798" alt="image" src="https://github.com/user-attachments/assets/fd3ec205-bc3c-46a1-b62b-a14c9322e653" />
+<img width="1705" height="831" alt="image" src="https://github.com/user-attachments/assets/7e6fcc4a-708f-4407-b3fb-9feb7fb6f9a1" />
+
+
+
 
 Gutenberg Editor view (Hello Editor 👋)
 
