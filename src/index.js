@@ -12,3 +12,4 @@ import "./hello.js"; // pehle wala block (Hello World)
 import "./testimonial.js"; // naya testimonial block
 import "./testimonial";
 import "./team-member"; // Add this line
+import "./cta-block"; // Add this line
