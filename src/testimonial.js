@@ -1,52 +1,79 @@
-import { registerBlockType } from '@wordpress/blocks';
-import { TextControl, TextareaControl } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
+import { registerBlockType } from "@wordpress/blocks";
+import { RichText, InspectorControls } from "@wordpress/block-editor";
+import { PanelBody, ColorPalette, FontSizePicker } from "@wordpress/components";
+import { __ } from "@wordpress/i18n";
+import { useState } from "@wordpress/element";
 
-registerBlockType('myplugin/testimonial-block', {
-    title: __('Testimonial Block', 'my-custom-block'),
-    icon: 'format-quote',
-    category: 'widgets',
+registerBlockType("my-plugin/testimonial", {
+  title: __("Testimonial", "my-plugin"),
+  icon: "format-quote",
+  category: "widgets",
+  attributes: {
+    name: { type: "string", source: "html", selector: "h4" },
+    text: { type: "string", source: "html", selector: "p" },
+    textColor: { type: "string", default: "#000000" },
+    bgColor: { type: "string", default: "#f9f9f9" },
+    fontSize: { type: "number", default: 16 },
+  },
+  edit: ({ attributes, setAttributes }) => {
+    const { name, text, textColor, bgColor, fontSize } = attributes;
 
-    attributes: {
-        name: {
-            type: 'string',
-            source: 'text',
-            selector: '.testimonial-name',
-        },
-        text: {
-            type: 'string',
-            source: 'text',
-            selector: '.testimonial-text',
-        },
-    },
+    return (
+      <>
+        <InspectorControls>
+          <PanelBody title={__("Block Settings", "my-plugin")}>
+            <p>{__("Text Color", "my-plugin")}</p>
+            <ColorPalette
+              value={textColor}
+              onChange={(color) => setAttributes({ textColor: color })}
+            />
+            <p>{__("Background Color", "my-plugin")}</p>
+            <ColorPalette
+              value={bgColor}
+              onChange={(color) => setAttributes({ bgColor: color })}
+            />
+            <p>{__("Font Size", "my-plugin")}</p>
+            <FontSizePicker
+              value={fontSize}
+              onChange={(size) => setAttributes({ fontSize: size })}
+            />
+          </PanelBody>
+        </InspectorControls>
 
-    edit: ({ attributes, setAttributes }) => {
-        const { name, text } = attributes;
+        <div style={{ backgroundColor: bgColor, padding: "20px" }}>
+          <RichText.Content
+            tagName="p"
+            value={text}
+            style={{ color: textColor, fontSize: fontSize + "px" }} // px add karo
+          />
 
-        return (
-            <div className="testimonial-editor">
-                <TextControl
-                    label="Name"
-                    value={name}
-                    onChange={(val) => setAttributes({ name: val })}
-                />
-                <TextareaControl
-                    label="Testimonial"
-                    value={text}
-                    onChange={(val) => setAttributes({ text: val })}
-                />
-            </div>
-        );
-    },
+          <RichText
+            tagName="p"
+            placeholder="Customer Feedback"
+            value={text}
+            onChange={(value) => setAttributes({ text: value })}
+            style={{ color: textColor, fontSize: fontSize + "px" }} // px add karo
+          />
+        </div>
+      </>
+    );
+  },
+  save: ({ attributes }) => {
+    const { name, text, textColor, bgColor, fontSize } = attributes;
 
-    save: ({ attributes }) => {
-        const { name, text } = attributes;
-
-        return (
-            <div className="testimonial-block">
-                <p className="testimonial-text">"{text}"</p>
-                <p className="testimonial-name">- {name}</p>
-            </div>
-        );
-    },
+    return (
+      <div style={{ backgroundColor: bgColor, padding: "20px" }}>
+        <RichText.Content
+          tagName="h4"
+          value={name}
+          style={{ color: textColor }}
+        />
+        <RichText.Content
+          tagName="p"
+          value={text}
+          style={{ color: textColor, fontSize: fontSize }}
+        />
+      </div>
+    );
+  },
 });
